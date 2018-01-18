@@ -28,7 +28,6 @@ var app = {
 			data: data
 		})
 	}
-	
 }
 
 
