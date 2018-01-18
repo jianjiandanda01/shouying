@@ -33,19 +33,19 @@ var app = {
 layui.use('laytpl', function() {
 	var laytpl = layui.laytpl;
 	//拿到页面数据
-	app.AJAXData("json/app.json", "get", {}, function(data) {
+	app.AJAXData("../json/app.json", "get", {}, function(data) {
 		//实例化layui
 		layui.use('element', function() {
 			var element = layui.element;
 			//获取页面模版
-			$.get("view/navView.html", function(getTpl) {
+			$.get("../view/navView.html", function(getTpl) {
 				//加载页面模版
 				laytpl(getTpl).render(data.navData, function(html) {
 					var view = document.getElementById('view');
 					view.innerHTML = html;
 				});
 				//获取页面模版
-				$.get("view/navTitle.html", function(getTplA) {
+				$.get("../view/navTitle.html", function(getTplA) {
 					//加载页面模版
 					laytpl(getTplA).render(data, function(html) {
 						var viewTitle = document.getElementById('viewTitle');
