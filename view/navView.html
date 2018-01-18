@@ -1,15 +1,17 @@
-<ul class="layui-nav layui-nav-tree" lay-filter="test">
-	{{# layui.each(d, function(index, item){ }}
-	<li class="layui-nav-item {{ item.titleLook && 'layui-nav-itemed' }}">
-			<a class="" href="{{ item.titleUrl || 'javascript:;' }}">{{ item.title }}</a>
-			{{# if(item.lites.length === 0){ }} {{# }else{ }} {{# layui.each(item.lites, function(index, items){ }}
-			<dl class="layui-nav-child">
-				<dd>
-					<a href='{{ items.url || "javascript:;" }}'>{{ items.name }}</a>
-				</dd>
-			</dl>
-			{{# }); }} {{# } }}
-		</li>
-		{{# }); }}
-</ul>
-{{# if(d.length === 0){ }} 无数据 {{# } }}
+<div class="layui-side-scroll">
+	<ul class="layui-nav layui-nav-tree" lay-filter="test">
+		{{# layui.each(d, function(index, item){ }}
+		<li class="layui-nav-item {{ item.titleLook && 'layui-nav-itemed' }}">
+				<a class="" href="{{ item.titleUrl || 'javascript:;' }}">{{ item.title }}</a>
+				{{# if(item.lites.length === 0){ }} {{# }else{ }} {{# layui.each(item.lites, function(index, items){ }}
+				<dl class="layui-nav-child">
+					<dd>
+						<a href='{{ items.url || "javascript:;" }}'>{{ items.name }}</a>
+					</dd>
+				</dl>
+				{{# }); }} {{# } }}
+			</li>
+			{{# }); }}
+	</ul>
+	{{# if(d.length === 0){ }} 无数据 {{# } }}
+</div>
