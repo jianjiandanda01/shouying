@@ -10,19 +10,19 @@
 					"lites": [
 						{
 							"name": "营业概况",
-							"url": "#"
+							"url": "../sale/doBusiness.html"
 						},{
 							"name": "销售单据",
-							"url": "#"
+							"url": "../sale/sales.html"
 						},{
 							"name": "日结记录",
-							"url": "#"
+							"url": "../sale/diurnalRecord.html"
 						},{
 							"name": "趋势分析",
-							"url": "#"
+							"url": "../sale/trendAnalysis.html"
 						},{
 							"name": "占比统计",
-							"url": "#"
+							"url": "../sale/OccupationStatistics.html"
 						},{
 							"name": "商品销售统计",
 							"url": "#"

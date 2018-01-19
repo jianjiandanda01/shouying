@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>日结记录</title>
+		<link rel="stylesheet" href="../layui/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
+		<script src="../js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layui/layui.js"></script>
+		<script src="../js/app.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header" id="viewTitle">
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+			</div>
+			<div class="layui-side layui-bg-black" id="view">
+				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+			</div>
+			<div class="layui-body" id="viewBody">
+				<!-- 内容主体区域 -->
+					<div class="row">
+						<div class="rowTitle">
+							<button class="layui-btn layui-btn-xs layui-btn-normal">导出</button>
+							<div class="layui-inline">
+								<div class="layui-input-inline">
+									<input type="text" name="date" id="date" lay-verify="date" placeholder="年-月-日" autocomplete="off" class="layui-input" lay-key="1">
+								</div>
+							</div>
+							<button class="layui-btn layui-btn-xs layui-btn-normal">搜索</button>
+						</div>
+						<hr class="layui-bg-blue" />
+						<div class="rowBody">
+							<table class="layui-hide" id="test"></table>
+						</div>
+					</div>
+			</div>
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+			</div>
+		</div>
+
+		<script src="../js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			/*注!:每页必须有prepare方法的创建*/
+			function prepare(element) {};
+		layui.use(['form', 'layedit', 'laydate'], function(){
+			  var form = layui.form
+			  ,layer = layui.layer
+			  ,layedit = layui.layedit
+			  ,laydate = layui.laydate;
+			  
+			  //日期
+			  laydate.render({
+			    elem: '#date'
+			  });
+			  laydate.render({
+			    elem: '#date1'
+			  });
+			})
+		layui.use('table', function(){
+		  var table = layui.table;
+		  
+		  table.render({
+		    elem: '#test'
+		    ,url:'../js/jquery-3.2.1.js'
+		    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+		    ,cols: [[
+		      {field:'id', title: '操作', align: 'center',width:'12.5%'}
+		      ,{field:'start', title: '开始时间',width:'12.5%'} //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
+		      ,{field:'end', title: '结束时间' , align: 'center',width:'12.5%'}
+		      ,{field:'Cashier', title: '收银员	', align: 'center',width:'12.5%'}
+		      ,{field:'allmaoey', title: '收银总额	', align: 'center',width:'12.5%'}
+		      ,{field:'Cashplay', title: '现金支付	', align: 'center',width:'12.5%'} //单元格内容水平居中
+		      ,{field:'UnionPay', title: '银联支付	',  align: 'center',width:'12.5%'} //单元格内容水平居中
+		      ,{field:'memoryCard', title: '储值卡支付',align: 'center',width:'12.5%'}
+		    ]]
+		  });
+		});	  
+		</script>	
+	</body>
+
+</html>

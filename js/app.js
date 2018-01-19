@@ -35,32 +35,32 @@ layui.use('laytpl', function() {
 	//拿到页面数据
 	app.AJAXData("../json/app.json", "get", {}, function(data) {
 		//实例化layui
-		layui.use('element', function() {
-			var element = layui.element;
+		var element = layui.element;
+		//获取页面模版
+		$.get("../view/navView.html", function(getTpl) {
+			//加载页面模版
+			laytpl(getTpl).render(data.navData, function(html) {
+				var view = document.getElementById('view');
+				view.innerHTML = html;
+			});
 			//获取页面模版
-			$.get("../view/navView.html", function(getTpl) {
+			$.get("../view/navTitle.html", function(getTplA) {
 				//加载页面模版
-				laytpl(getTpl).render(data.navData, function(html) {
-					var view = document.getElementById('view');
-					view.innerHTML = html;
+				laytpl(getTplA).render(data, function(html) {
+					var viewTitle = document.getElementById('viewTitle');
+					viewTitle.innerHTML = html;
 				});
-				//获取页面模版
-				$.get("../view/navTitle.html", function(getTplA) {
-					//加载页面模版
-					laytpl(getTplA).render(data, function(html) {
-						var viewTitle = document.getElementById('viewTitle');
-						viewTitle.innerHTML = html;
-					});
+				layui.use('element', function() {
 					//输出实例化layui
 					prepare(element);
 					//输出加载完毕方法
-					prepareFun();
-				})
+					prepareFun(element);
+				});
 			})
-		});
+		})
 	})
 });
-function prepareFun(){
+function prepareFun(element){
 	//隐藏侧边栏方法
 	$("#layadmin-event").click(function(){
 		$("#view").toggleClass("layui-sideMin");

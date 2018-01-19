@@ -435,11 +435,6 @@
 		<script>
 			/*注!:每页必须有prepare方法的创建*/
 			function prepare(element) {
-				console.log(element);
-				element.render('nav');
-				element.on('nav(test)', function(elem) {
-					console.log(elem); //得到当前点击的DOM对象
-				});
 			}
 			/*form表单组件实例化*/
 			layui.use('form', function() {
