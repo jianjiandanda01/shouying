@@ -25,40 +25,48 @@
 					<div class="row">
 						<div class="rowTitle">
 							<div class="layui-form">
-								<button class="layui-btn layui-btn-xs layui-btn-normal">导出Excel</button>
-								<div class="layui-inline">
-									<div class="layui-input-inline">
-										<input type="text" name="date" id="date" lay-verify="date" placeholder="年-月-日" autocomplete="off" class="layui-input" lay-key="1">
+								<div class="layui-row">
+									<div class="layui-col-sm8">
+										<button class="layui-btn layui-btn-sm layui-btn-normal">导出Excel</button>
 									</div>
+									<div class="layui-inline layui-col-sm4">
+										<div class="layui-input-inline">
+											<input type="text" name="date" id="date" lay-verify="date" placeholder="年-月-日" autocomplete="off" class="layui-input" lay-key="1">
+										</div>
+											<div class="layui-inline">
+										      <div class="layui-input-inline">
+										        <select name="modules" lay-verify="required" lay-search="">
+										          <option value="">直接选择或搜索选择</option>
+										          <option value="1">layer</option>
+										          <option value="2">form</option>
+										          <option value="3">layim</option>
+										          <option value="4">element</option>
+										          <option value="5">laytpl</option>
+										          <option value="6">upload</option>
+										          <option value="7">laydate</option>
+										          <option value="8">laypage</option>
+										          <option value="9">flow</option>
+										          <option value="10">util</option>
+										          <option value="11">code</option>
+										          <option value="12">tree</option>
+										          <option value="13">layedit</option>
+										          <option value="14">nav</option>
+										          <option value="15">tab</option>
+										          <option value="16">table</option>
+										          <option value="17">select</option>
+										          <option value="18">checkbox</option>
+										          <option value="19">switch</option>
+										          <option value="20">radio</option>
+										        </select>
+			     							 </div>
+		    							</div>
+		    							<button class="layui-btn layui-btn-sm layui-btn-normal">搜索</button>
+									</div>
+								
 								</div>
-								<div class="layui-inline">
-								      <div class="layui-input-inline">
-								        <select name="modules" lay-verify="required" lay-search="">
-								          <option value="">直接选择或搜索选择</option>
-								          <option value="1">layer</option>
-								          <option value="2">form</option>
-								          <option value="3">layim</option>
-								          <option value="4">element</option>
-								          <option value="5">laytpl</option>
-								          <option value="6">upload</option>
-								          <option value="7">laydate</option>
-								          <option value="8">laypage</option>
-								          <option value="9">flow</option>
-								          <option value="10">util</option>
-								          <option value="11">code</option>
-								          <option value="12">tree</option>
-								          <option value="13">layedit</option>
-								          <option value="14">nav</option>
-								          <option value="15">tab</option>
-								          <option value="16">table</option>
-								          <option value="17">select</option>
-								          <option value="18">checkbox</option>
-								          <option value="19">switch</option>
-								          <option value="20">radio</option>
-								        </select>
-	     							 </div>
-    							</div>
-    							<button class="layui-btn layui-btn-xs layui-btn-normal">搜索</button>
+
+								
+								
 							</div>
 							
   						</div>
