@@ -25,7 +25,7 @@
 					<div class="row">
 						<div class="rowTitle">
 							<div class="layui-row">
-								<div class="layui-col-sm10">
+								<div class="layui-col-sm9">
 									<button class="layui-btn layui-btn-sm layui-btn-normal">导出Excel</button>
 								</div>
 								<div class="layui-col-sm2">
@@ -34,8 +34,8 @@
 											<input type="text" name="date" id="date" lay-verify="date" placeholder="年-月-日" autocomplete="off" class="layui-input" lay-key="1">
 										</div>
 									</div>
-									<button class="layui-btn layui-btn-sm layui-btn-normal">搜索</button>
 								</div>
+								<button class="layui-btn layui-btn-sm layui-btn-normal layui-col-sm1">搜索</button>
 							</div>
 
 							
@@ -75,6 +75,7 @@
 		  table.render({
 		    elem: '#test'
 		    ,url:'../js/jquery-3.2.1.js'
+		    ,page: true
 		    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
 		    ,cols: [[
 		      {field:'id', title: '序号	', align: 'center',width:'10%'}

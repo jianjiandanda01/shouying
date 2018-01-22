@@ -10,19 +10,19 @@
 					"lites": [
 						{
 							"name": "营业概况",
-							"url": "../sale/doBusiness.html"
+							"url": "../sale/sale_doBusiness.html"
 						},{
 							"name": "销售单据",
-							"url": "../sale/sales.html"
+							"url": "../sale/sale_sales.html"
 						},{
 							"name": "日结记录",
-							"url": "../sale/diurnalRecord.html"
+							"url": "../sale/sale_diurnalRecord.html"
 						},{
 							"name": "趋势分析",
-							"url": "../sale/trendAnalysis.html"
+							"url": "../sale/sale_trendAnalysis.html"
 						},{
 							"name": "占比统计",
-							"url": "../sale/OccupationStatistics.html"
+							"url": "../sale/sale_OccupationStatistics.html"
 						},{
 							"name": "商品销售统计",
 							"url": "#"
