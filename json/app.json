@@ -45,13 +45,13 @@
 							"url": "#"
 						},{
 							"name": "商品分类",
-							"url": "#"
+							"url": "../goods/goods_type.html"
 						},{
 							"name": "批量操作",
 							"url": "#"
 						},{
 							"name": "排序管理",
-							"url": "#"
+							"url": "../goods/goods_management.html"
 						},{
 							"name": "原材料配方",
 							"url": "#"

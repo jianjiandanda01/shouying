@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>layout 后台大布局 - Layui</title>
+		<link rel="stylesheet" href="../layui/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
+		<script src="../js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layui/layui.js"></script>
+		<script src="../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<link href="../Tdrag/demo.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../css/goods_management.css"/>
+	</head>
+
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header" id="viewTitle">
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+			</div>
+			<div class="layui-side layui-bg-black" id="view">
+				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+			</div>
+			<div class="layui-body" id="viewBody">
+				<!-- 内容主体区域 -->
+				<div class="row">
+					<div class="rowTitle">
+						<button class="layui-btn layui-btn-xs layui-btn-normal saveEditor">
+							编辑分类排序
+						</button>
+						<button class="layui-btn layui-btn-xs layui-btn-normal saveEditor">
+							编辑商品排序
+						</button>
+						<button class="layui-btn layui-btn-xs layui-btn-normal">
+							复制到...
+						</button>
+						<button class="layui-btn layui-layout-right" id="save" style="display: none;">
+							保存
+						</button>
+					</div>
+					<hr class="layui-bg-blue" />
+					<div class="rowBody">
+						<div class="layui-tab layui-tab-card" id="rowLook">
+						  <ul class="layui-tab-title">
+						    <li class="layui-this">网站设的撒的撒旦置</li>
+						    <li>用户管理</li>
+						    <li>权限分配</li>
+						    <li>商品管理</li>
+						    <li>订单管理</li>
+						    <li>订单管理</li>
+						    <li>订单管理</li>
+						    <li>订单管理</li>
+						    <li>订单管理</li>
+						    <li>订单管理</li>
+						    <li>订单管理</li>
+						    <li>订单管理</li>
+						    <li>订单管理</li>
+						    <li>订单管理</li>
+						    <li>订单管理</li>
+						    <li>订单管理</li>
+						    <li>订单管理</li>
+						  </ul>
+						  <div class="layui-tab-content">
+						    <div class="layui-tab-item layui-show layui-clear">
+						    	<div class="food layui-row">
+									<img class="layui-col-xs3" src="../img/mxgnb.jpg"/>
+									<div class="layui-col-xs9">
+										<div class="foodTitle text_bold_blue">
+											宫保鸡丁
+										</div>
+										<div class="foodBody text_bold_yellow">
+											￥15.5
+										</div>
+									</div>
+						    	</div>
+						    	<div class="food layui-row">
+									<img class="layui-col-xs3" src="../img/mxgnb.jpg"/>
+									<div class="layui-col-xs9">
+										<div class="foodTitle text_bold_blue">
+											宫保鸡丁
+										</div>
+										<div class="foodBody text_bold_yellow">
+											￥15.5
+										</div>
+									</div>
+						    	</div>
+						    	<div class="food layui-row">
+									<img class="layui-col-xs3" src="../img/mxgnb.jpg"/>
+									<div class="layui-col-xs9">
+										<div class="foodTitle text_bold_blue">
+											宫保鸡丁
+										</div>
+										<div class="foodBody text_bold_yellow">
+											￥15.5
+										</div>
+									</div>
+						    	</div>
+						    	<div class="food layui-row">
+									<img class="layui-col-xs3" src="../img/mxgnb.jpg"/>
+									<div class="layui-col-xs9">
+										<div class="foodTitle text_bold_blue">
+											宫保鸡丁
+										</div>
+										<div class="foodBody text_bold_yellow">
+											￥15.5
+										</div>
+									</div>
+						    	</div>
+						    </div>
+						    <div class="layui-tab-item">2</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">3</div>
+						  </div>
+						</div>
+						<div class="boxList layui-clear" id="rowMobile">
+							<div class="layui-bg-blue one div8 layui-elip">1</div>
+							<div class="layui-bg-blue one div8 layui-elip">2</div>
+							<div class="layui-bg-blue one div8 layui-elip">3</div>
+							<div class="layui-bg-blue one div8 layui-elip">4</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+			</div>
+		</div>
+		<script type="text/javascript" src="../Tdrag/Tdrag.js"></script>
+		<script>
+			/*注!:每页必须有prepare方法的创建*/
+			function prepare(element) {}
+			//第八个例子的拖拽
+			jQuery(function() {
+				$(".div8").Tdrag({
+					pos: true,
+					dragChange: true
+				});
+				$("#rowMobile").css("display","none");
+			})
+			$("#save").click(function(){
+				var one = $(".one");
+				var div8 = [];
+				for (var i = 0; i < one.length; i++) {
+					one.each(function(s){
+						if ($(this).attr("index") == i) {
+							div8.push(this.innerText)
+						}
+					})
+				}
+				console.log(div8);
+			})
+			$(".saveEditor").click(function(){
+				if($("#rowLook").css("display") == "none"){
+					$("#rowLook").css("display","block");
+					$("#rowMobile").css("display","none");
+					$("#save").css("display","none");
+				}else{
+					$("#rowLook").css("display","none");
+					$("#rowMobile").css("display","block");
+					$("#save").css("display","block");
+				}
+			})
+
+		</script>
+	</body>
+
+</html>

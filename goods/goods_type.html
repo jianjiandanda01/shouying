@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>layout 后台大布局 - Layui</title>
+		<link rel="stylesheet" href="../layui/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="../zTree/zTreeStyle.css" />
+		<script src="../js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layui/layui.js"></script>
+		<script src="../js/app.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header" id="viewTitle">
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+			</div>
+			<div class="layui-side layui-bg-black" id="view">
+				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+			</div>
+			<div class="layui-body" id="viewBody">
+				<!-- 内容主体区域 -->
+				<div class="row">
+					<div class="rowTitle">
+						<button id="save" class="layui-btn layui-btn-normal" >
+							保存
+						</button>
+					</div>
+					<hr class="layui-bg-blue" />
+					<div class="rowBody">
+						<ul id="treeDemo" class="ztree"></ul>
+					</div>
+				</div>
+			</div>
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+			</div>
+		</div>
+
+		<script type="text/javascript" src="../zTree/jquery.ztree.core.js"></script>
+		<script type="text/javascript" src="../zTree/jquery.ztree.excheck.js"></script>
+		<script type="text/javascript" src="../zTree/jquery.ztree.exedit.js"></script>
+
+		<script>
+			/*注!:每页必须有prepare方法的创建*/
+			function prepare(element) {}
+			var setting = {
+				view: {
+					addHoverDom: addHoverDom,
+					removeHoverDom: removeHoverDom,
+					selectedMulti: false
+				},
+				check: {
+					enable: true
+				},
+				data: {
+					simpleData: {
+						enable: true
+					}
+				},
+				edit: {
+					enable: true
+				}
+			};
+
+			app.AJAXData("../json/zTree-data.json", "get", {}, function(res) {
+				$(document).ready(function() {
+					$.fn.zTree.init($("#treeDemo"), setting, res.list);
+				});
+			})
+
+			var newCount = 1;
+
+			function addHoverDom(treeId, treeNode) {
+				//添加一个文件
+				var sObj = $("#" + treeNode.tId + "_span");
+				if(treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) {} else {
+					var addStr = "<span class='button add' id='addBtn_" + treeNode.tId + "' title='add node' onfocus='this.blur();'></span>";
+					sObj.after(addStr);
+					var btn = $("#addBtn_" + treeNode.tId);
+					if(btn) btn.bind("click", function() {
+						var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+						zTree.addNodes(treeNode, {
+							id: (1000 + newCount),
+							pId: treeNode.id,
+							name: "new node" + (newCount++)
+						});
+					});
+				};
+
+				//是否显示文件
+				var sObj1 = $("#" + treeNode.tId + "_span");
+				if(treeNode.editNameFlag || $("#addBtn1_" + treeNode.tId).length > 0) {} else {
+					var addStr1 = "<span class='button ";
+					if(treeNode.look) {
+						addStr1 += "eye";
+					} else {
+						addStr1 += "eye-slash";
+					}
+					addStr1 += "' id='addBtn1_" + treeNode.tId + "' title='add node123'></span>";
+					sObj1.after(addStr1);
+					var btn1 = $("#addBtn1_" + treeNode.tId);
+					if(btn1) {
+						btn1.bind("click", function() {
+							console.log(this.className);
+							if(this.className == "button eye") {
+								this.className = 'button eye-slash';
+								treeNode.look = false;
+							} else {
+								this.className = 'button eye';
+								treeNode.look = true;
+							};
+						});
+					}
+				};
+			};
+
+			function removeHoverDom(treeId, treeNode) {
+				$("#addBtn_" + treeNode.tId).unbind().remove();
+				$("#addBtn1_" + treeNode.tId).unbind().remove();
+			};
+			$("#save").click(function() {
+				var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+				//      	console.log(treeObj.getNodes())
+				var nodes = treeObj.transformToArray(treeObj.getNodes());
+				console.log(nodes)
+			})
+		</script>
+	</body>
+
+</html>

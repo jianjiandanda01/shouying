@@ -1,0 +1,10 @@
+
+		{
+			"list":[
+		        	{"id":1, "pId":0, "look":true, "name":"[core] 基本功能 演示", "open":true},
+					{"id":1001, "pId":1, "look":true, "name":"最简单的树 --  标准 JSON 数据"},
+					{"id":2, "pId":0, "look":false, "name":"[core] 基本功能 演示", "open":false},
+					{"id":1002, "pId":2, "look":false, "name":"最简单的树 --  标准 JSON 数据"}
+		        ]
+		}		
+

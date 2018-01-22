@@ -1,0 +1,21 @@
+.food{
+	margin: 0 5px;
+	width: 350px;
+	height: 80px;
+	display: inline-block;
+	background-color: #eeeeee;
+	position: relative;
+}
+.foodTitle{
+	padding-top: 15px;
+	padding-right: 15px;
+	text-align: right;
+}
+.foodBody{
+	position: absolute;
+	right: 20px;
+	top: 50px;
+}
+.food img{
+	height: 100%;
+}
