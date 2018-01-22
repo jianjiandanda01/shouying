@@ -848,7 +848,8 @@ a cite {
 	overflow: hidden;
 	overflow-y: auto;
 	transition: 0.5s;
-	box-sizing: border-box
+	box-sizing: border-box;
+	padding: 15px
 }
 
 .layui-layout-body {

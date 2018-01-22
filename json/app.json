@@ -25,16 +25,16 @@
 							"url": "../sale/sale_OccupationStatistics.html"
 						},{
 							"name": "商品销售统计",
-							"url": "#"
+							"url": "../sale/sale_Statistics.html"
 						},{
 							"name": "口味销售统计",
-							"url": "#"
+							"url": "../sale/sale_delicious.html"
 						},{
 							"name": "顾客评论",
-							"url": "#"
+							"url": "../sale/sale_reviews.html"
 						},{
 							"name": "折扣统计",
-							"url": "#"
+							"url": "../sale/sale_discount.html"
 						}
 					]
 				},{
@@ -45,13 +45,13 @@
 							"url": "#"
 						},{
 							"name": "商品分类",
-							"url": "#"
+							"url": "../goods/goods_type.html"
 						},{
 							"name": "批量操作",
 							"url": "#"
 						},{
 							"name": "排序管理",
-							"url": "#"
+							"url": "../goods/goods_management.html"
 						},{
 							"name": "原材料配方",
 							"url": "#"

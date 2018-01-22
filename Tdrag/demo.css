@@ -1,0 +1,56 @@
+*{margin: 0;padding: 0;}
+.one{
+    width: 108px;
+   /* position: absolute;*/
+    margin: 0px;
+    border: #c2c2c2 1px solid ;
+    padding: 20px 20px;
+}
+.boxList{
+    border: 1px solid #FF5722;
+    height: auto;
+    position: relative;
+    width: 900px;
+}
+
+.tezml{
+    border: 3px #FF5722 dashed;
+}
+.box{
+    margin: 50px;
+    padding: 30px;
+    background: #eeeeee;
+}
+
+
+
+.example_one{
+    height: 600px;
+}
+.example_one .code{
+    float: left;
+    width: 45%;
+}
+.example_one .example{
+    float: right;
+    border-left: 1px solid #cccccc;
+    width: 45%;
+    height: 620px;
+}
+
+h2{
+    color: #006CBF;
+    margin: 50px 0 0 20px;
+}
+.onlyX{
+    top: 40%;
+}
+.onlyY{
+    left: 45%;
+}
+
+.div8{
+    float: left;
+}
+
+

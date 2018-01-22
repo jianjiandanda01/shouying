@@ -29,25 +29,25 @@
 						<div class="layui-form">
 							<div class="layui-form-item">
 								<div class="layui-row">
-									<div class="layui-col-sm3">
+									<div class="layui-col-sm2">
 										<button class="layui-btn layui-btn-normal layui-btn layui-btn-sm">导出</button>
 										<input class="" type="checkbox" name="" title="显示单据明细" lay-skin="primary" checked>
 									</div>
 									<!--<div class="layui-col-md1"></div>-->
-									<div class="layui-input-inline layui-col-sm2">
+									<div class="layui-input-inline layui-col-sm1">
 										<select name="quiz1">
 											<option value="">全部收银员</option>
 											<option value="浙江" selected="">1001</option>
 											<option value="你的工号">1102</option>
 										</select>
-										<div class="layui-unselect layui-form-select">
-											<div class="layui-select-title"><input type="text" placeholder="请选择" value="全部收银员" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div>
-											<dl class="layui-anim layui-anim-upbit">
-												<dd lay-value="" class="layui-select-tips">全部收银员</dd>
-												<dd lay-value="浙江" class="">1001</dd>
-												<dd lay-value="你的工号" class="layui-this">1102</dd>
-											</dl>
-										</div>
+									</div>
+									<div class="layui-unselect layui-form-select layui-col-sm2">
+										<div class="layui-select-title"><input type="text" placeholder="请选择" value="全部收银员" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div>
+										<dl class="layui-anim layui-anim-upbit">
+											<dd lay-value="" class="layui-select-tips">全部收银员</dd>
+											<dd lay-value="浙江" class="">1001</dd>
+											<dd lay-value="你的工号" class="layui-this">1102</dd>
+										</dl>
 									</div>
 									<div class="layui-input-inline layui-col-sm2">
 										<select name="quiz2">
@@ -102,7 +102,10 @@
 									<div class="layui-input-inline layui-col-sm1">
 										<input type="text" name="number" autocomplete="off" class="layui-input">
 									</div>
-									<button class="layui-btn layui-btn-normal layui-btn-sm1 layui-btn-sm">搜索</button>
+									<div class="layui-col-sm1">
+										<button class="layui-btn layui-btn-normal layui-btn-sm1 layui-btn-sm">搜索</button>
+									</div>
+
 								</div>
 
 								<!--<div class="layui-btn layui-btn-xs layui-btn-normal">-->
