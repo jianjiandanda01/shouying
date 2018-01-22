@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>商品销售统计</title>
+		<link rel="stylesheet" href="../layui/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
+		<script src="../js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layui/layui.js"></script>
+		<script src="../js/app.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	</style>
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header" id="viewTitle">
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+			</div>
+			<div class="layui-side layui-bg-black" id="view">
+				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+			</div>
+			<div class="layui-body" id="viewBody">
+				<!-- 内容主体区域 -->
+						<!--按钮部分-->
+				<div class="row">
+					<div class="rowTitle">
+						<form action="">
+						<div class="layui-form">
+							<div class="layui-row">
+								<div class="layui-col-sm3">
+									<button class="layui-btn layui-btn-sm layui-btn-normal">导出</button>
+									<button class="layui-btn layui-btn-sm layui-btn-normal">散点图</button>
+								</div>
+								<div class="layui-col-sm2">
+									<div class="layui-inline layui-input-inline">
+									      <!--<div class="layui-input-inline">-->
+									        <select name="quiz" lay-verify="required" lay-search="">
+									          <option value="">请选择</option>
+									          <optgroup label="川湘菜">
+									            <option value="">西北餐</option>
+									            <option value="">东北菜</option>
+									            <option value="">粤菜</option>
+									          </optgroup>
+									          <optgroup label="西餐">
+									            <option value="">墨西哥鸡扒</option>
+									            <option value="">精挑小牛排鹅肝</option>
+									          </optgroup>
+									          <optgroup label="自助餐">
+									          	<option value="">自助火锅</option>
+									          	<option value="">荤菜</option>
+									          	<option value="">素材</option>
+									          	<option value="">海鲜自助</option>
+									          	<option value="">烤肉自助</option>
+									          </optgroup>
+									          <optgroup label="套餐">
+									          	<option value="">双人餐</option>
+									          	<option value="">四人餐</option>
+									          	<option value="">八人餐</option>
+									          </optgroup>
+											 <optgroup label="饮料">
+											 	<option value="">果汁</option>
+											 	<option value="">奶茶</option>
+											 </optgroup>										          
+									        </select>
+									      <!--</div>-->
+									</div>
+								</div>
+								<div class="layui-col-sm1">
+									<div class="layui-inline">
+								        <select name="quiz" lay-verify="required" lay-verType="tips">
+								          <option value="">全部供货商</option>
+								          <option value="">九州豆腐加工厂</option>
+								          <option value="">五泉山菜市场</option>
+								          <option value="">定西宽粉加工厂</option>
+								          <option value="">张苏滩粮油市场</option>
+								          <option value="">雁滩南路菜市场批发部</option>
+								        </select>
+								    </div>
+								</div>
+								<div class="layui-col-sm1">
+									<div class="layui-inline">
+								        <select name="quiz" lay-verify="required" lay-verType="tips">
+								          <option value="">全部标签</option>
+								          <option value="">主厨推荐</option>
+								          <option value="">店长推荐</option>
+								          <option value="">每日推荐</option>
+								          <option value="">rer</option>
+								        </select>
+								    </div>
+								</div>
+								<!--日期-->
+								<div class="layui-col-sm2">
+									<div class="layui-inline">
+									  <input type="text" class="layui-input" id="test1">
+									</div>
+								</div>
+								<div class="layui-col-sm1">
+									<div class="layui-inline">
+								        <select name="quiz" lay-verify="required" lay-verType="tips">
+								          <option value="">有销量</option>
+								          <option value="">无销量</option>
+								        </select>
+								    </div>
+								</div>
+								<div class="layui-col-sm1">
+									<input type="text" class="layui-input" />
+								</div>
+								<div class="layui-col-sm1">
+									<button class="layui-btn layui-btn-sm layui-btn-normal">查询</button>
+								</div>
+						</div>
+						</form>
+					</div>
+						<hr class="layui-bg-blue" />
+					<div class="rowBody">
+						<table id="test2" lay-filter="test2"></table>
+					</div>
+				</div>
+			</div>
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+			</div>
+		</div>
+	</body>
+		<script src="../js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			layui.use(['form', 'layedit', 'laydate'], function(){
+			  var form = layui.form
+			  ,layer = layui.layer
+			  ,layedit = layui.layedit
+			  ,laydate = layui.laydate;
+			  
+			  //日期
+			  laydate.render({
+			    elem: '#date'
+			  });
+			  laydate.render({
+			    elem: '#date1'
+			  });
+			  laydate.render({
+			    elem: '#test1' //指定元素
+			    ,type: 'datetime'
+			    ,trigger: 'click'
+			    ,lang: 'en'
+			    //,lang: 'en'
+			    ,range: true //开启日期范围，默认使用“_”分割
+			    ,done: function(value, date, endDate){
+			      console.log(value, date, endDate);
+			    }
+			    ,change: function(value, date, endDate){
+			      console.log(value, date, endDate);
+			    }
+			  });
+			});
+			layui.use('table', function(){
+  				var table = layui.table;
+			table.render({
+		    elem: '#test2'
+//		    ,url: 'json/table/demo1.json'
+		    ,page: { //详细参数可参考 laypage 组件文档
+		      curr: 5
+		      ,groups: 1
+		      ,first: false
+		      ,last: false
+		      ,layout: ['limit', 'prev', 'page', 'next', 'count'] //自定义分页布局
+		    }
+		    ,height: 610
+		    ,cellMinWidth: 80
+		    ,cols: [[
+		      
+		     {field:'id', title:'序号', unresize: true, sort: true}
+		      ,{field:'username', title:'操作', templet: '#usernameTpl'}
+		      ,{field:'email', title:'商品名称'}
+		      ,{field:'sex', title:'商品条码', templet: '#switchTpl', minWidth: 85, align:'center'}
+		      ,{field:'lock', title:'商品分类', templet: '#checkboxTpl', minWidth: 110, align:'center'}
+		      ,{field:'city', title:'现有库存'}
+		      ,{field:'city', title:'销售数量'}
+		      ,{field:'city', title:'销售占比'}
+		      ,{field:'city', title:'商品总价'}
+		      ,{field:'city', title:'实收金额'}
+		      ,{field:'city', title:'实收占比'}
+		      ,{field:'city', title:'利润'}
+		      ,{field:'city', title:'利润率'}
+		    ]]
+		  });
+		 });
+
+		</script>
+</html>

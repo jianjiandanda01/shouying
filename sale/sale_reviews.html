@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>顾客评论</title>
+		<link rel="stylesheet" href="../layui/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css" />
+		<script src="../js/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layui/layui.js"></script>
+		<script src="../js/app.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		.layui-input-tst{
+			width: 300px;
+		}
+	</style>
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header" id="viewTitle">
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+			</div>
+			<div class="layui-side layui-bg-black" id="view">
+				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+			</div>
+			<div class="layui-body" id="viewBody">
+				<!-- 内容主体区域 -->
+						<!--按钮部分-->
+				<div class="row">
+					<div class="rowTitle">
+						<form action="">
+						<div class="layui-form">
+							<div class="layui-row">
+								<div class="layui-col-sm5">
+									<button class="layui-btn layui-btn-danger layui-btn-sm">评论明细</button>
+									<button class="layui-btn layui-btn-sm layui-btn-normal">评分项分析</button>
+									<button class="layui-btn layui-btn-sm layui-btn-normal">商品评论统计</button>
+								</div>
+								<div class="layui-col-sm2">
+									<div class="layui-inline">
+								        <select name="quiz" lay-verify="required" lay-verType="tips">
+								          <option value="">门店评论</option>
+								          <option value="">商品评论</option>
+								        </select>
+								    </div>
+								</div>
+								<!--日期-->
+								<div class="layui-col-sm4">
+									<div class="layui-inline layui-input-tst">
+									  <input type="text" class="layui-input" id="test1">
+									</div>
+								</div>
+								<div class="layui-col-sm1">
+									<button class="layui-btn layui-btn-sm layui-btn-normal">查询</button>
+								</div>
+						
+						</form>
+					</div>
+						<hr class="layui-bg-blue" />
+					<div class="rowBody">
+						<table id="test2" lay-filter="test2"></table>
+					</div>
+				</div>
+			</div>
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+			</div>
+		</div>
+	</body>
+		<script src="../js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			layui.use(['form', 'layedit', 'laydate'], function(){
+			  var form = layui.form
+			  ,layer = layui.layer
+			  ,layedit = layui.layedit
+			  ,laydate = layui.laydate;
+			  
+			  //日期
+			  laydate.render({
+			    elem: '#date'
+			  });
+			  laydate.render({
+			    elem: '#date1'
+			  });
+			  laydate.render({
+			    elem: '#test1' //指定元素
+			    ,type: 'datetime'
+			    ,trigger: 'click'
+			    ,lang: 'en'
+			    //,lang: 'en'
+			    ,range: true //开启日期范围，默认使用“_”分割
+			    ,done: function(value, date, endDate){
+			      console.log(value, date, endDate);
+			    }
+			    ,change: function(value, date, endDate){
+			      console.log(value, date, endDate);
+			    }
+			  });
+			});
+			layui.use('table', function(){
+  				var table = layui.table;
+			table.render({
+		    elem: '#test2'
+//		    ,url: 'json/table/demo1.json'
+		    ,page: { //详细参数可参考 laypage 组件文档
+		      curr: 5
+		      ,groups: 1
+		      ,first: false
+		      ,last: false
+		      ,layout: ['limit', 'prev', 'page', 'next', 'count'] //自定义分页布局
+		    }
+		    ,height: 610
+		    ,cellMinWidth: 80
+		    ,cols: [[
+		      
+		     {field:'id', title:'操作', unresize: true, sort: false, minWidth: 80}
+		      ,{field:'username', title:'折扣名称', templet: '#usernameTpl', minWidth: 200}
+		      ,{field:'email', title:'单数', minWidth: 200}
+		      ,{field:'sex', title:'原价总额', templet: '#switchTpl', minWidth:200, align:'center'}
+		      ,{field:'lock', title:'实收金额', templet: '#checkboxTpl', minWidth: 110, align:'center'}
+		      ,{field:'city', title:'折让总额', minWidth: 110,}
+		      ,{field:'city', title:'折让比例', minWidth: 110,}
+		      ,{field:'city', title:'营业额占比', minWidth: 110,}
+		    ]]
+		  });
+		 });
+
+		</script>
+</html>
